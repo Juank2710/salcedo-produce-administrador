@@ -10,3 +10,5 @@ firebase.initializeApp({
 });
 
 var db = firebase.firestore();
+
+//var func=firebase.functions();
