@@ -140,7 +140,8 @@ function subirColeccion(nombreImagen, imgUrl,id){
           document.getElementById('horaCierre').value='17:00';
           document.getElementById('urlUbicacion').value='';
           document.getElementById('facebook').value='';
-          document.getElementById('telefono').value='';          
+          document.getElementById('telefono').value='';
+          document.getElementById('imagenPortadaNeg').value='';            
       })
       .catch((error) => {
           console.error("Error adding document: ", error);
