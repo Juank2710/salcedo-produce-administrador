@@ -49,6 +49,8 @@ function activarListaNeg(){
         contenedor.style.display="block";
         //recolectar datos 
         db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").onSnapshot((querySnapshot) => {
+            contentListaNegocios.innerHTML='';
+             
             querySnapshot.forEach((doc) => {
                 ultimoIdNegocio=Math.max(doc.id);
                 contentListaNegocios.innerHTML+=`
@@ -86,9 +88,9 @@ function activarListaNeg(){
                                     '${doc.data().urlUbicacion}',
                                     '${doc.data().facebook}',
                                     '${doc.data().telefono}',
-                                    '${doc.data().nombreImagen}',
+                                    '${doc.data().nombreImagen}'
                                 
-                                ')">Editar</button> </td>
+                                )">Editar</button> </td>
                                 <td><button class="btn btn-danger" onclick="eliminar('${doc.id}','${doc.data().nombreImagen}')">Eliminar</button></th>
                             </tr>
                 

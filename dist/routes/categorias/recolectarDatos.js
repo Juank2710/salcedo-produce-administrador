@@ -33,6 +33,7 @@ function elegir(){
             querySnapshot.forEach((doc) => {
 
                 ultimoIdCategoria=Math.max(doc.id);
+                console.log(ultimoIdCategoria);
         
                 tabla_categoria.innerHTML+=`
                 <tr>
@@ -46,9 +47,11 @@ function elegir(){
                 </tr>   
                `
             });
+            
             if(ultimoIdCategoria === undefined){
                 ultimoIdCategoria=0;
             }
+            console.log("id del valor ultimo"+ultimoIdCategoria);
             //aumentar un valor para que no se repitan los Id
             ultimoIdCategoria=ultimoIdCategoria+1;
             
