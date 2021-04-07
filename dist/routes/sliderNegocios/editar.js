@@ -1,12 +1,10 @@
 
 function editar(id,nombreImagen){
-    document.getElementById('Agregar').style.display="none";
-    document.getElementById('editarBtn').style.display="block";
 
 var boton=document.getElementById('editarBtn');
 
     //si detecta que se a cambiado la imagen va a eliminar
-    var inputImage=document.getElementById('imagenSlider');
+    var inputImage=document.getElementById('imagenSliderEditar');
     inputImage.addEventListener('change',function(){
         
         var storageRef = firebase.storage().ref("imagesSlider");
@@ -24,12 +22,10 @@ var boton=document.getElementById('editarBtn');
         
    
     
-    
-    document.getElementById('contentNombreImagen').style.display="block";
     document.getElementById('nombreImageneditada').value=nombreImagen;
 
     boton.onclick=function(){
-        var imagenNueva=document.getElementById("imagenSlider").files[0];
+        var imagenNueva=document.getElementById("imagenSliderEditar").files[0];
         if(imagenNueva !== undefined){
             var referenciaImg = firebase.storage().ref("imagesSlider/"+imagenNueva.name);
             var nombreImagenNueva=imagenNueva.name;
@@ -54,10 +50,7 @@ var boton=document.getElementById('editarBtn');
             
         }else{
             alert("No a modificado la imagen una imagen");
-            document.getElementById('contentNombreImagen').style.display="none";
             document.getElementById('nombreImageneditada').value='';
-            document.getElementById('Agregar').style.display="block";
-        document.getElementById('editarBtn').style.display="none";
         }
     }
 }
@@ -70,11 +63,8 @@ function accionEditar(imgUrl,nombreImagenNueva,editarColeccion,boton){
         imagenSlider: imgUrl,
     })
     .then(() => {
-        document.getElementById('imagenSlider').value='';
+        document.getElementById('imagenSliderEditar').value='';
         document.getElementById('nombreImageneditada').value='';
-        document.getElementById('contentNombreImagen').style.display="none";
-        document.getElementById('Agregar').style.display="block";
-        document.getElementById('editarBtn').style.display="none";
     })
     .catch((error) => {
         // The document probably doesn't exist.

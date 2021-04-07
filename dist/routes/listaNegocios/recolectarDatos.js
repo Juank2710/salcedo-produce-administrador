@@ -78,7 +78,7 @@ function activarListaNeg(){
                                 <td scope="col">${doc.data().facebook}</td>
                                 <td scope="col">${doc.data().telefono}</td>
                                 <td scope="col"><img src="${doc.data().imagenPortada}" alt="" id="imgListaNegoico" style="width: 100px; height: 50px;"></td>
-                                <td><button class="btn btn-warning" onclick="editar(
+                                <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar" onclick="editar(
                                     '${doc.id}',
                                     '${doc.data().nombreNegocio}',
                                     '${doc.data().descripcion}',

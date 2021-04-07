@@ -112,85 +112,14 @@
                         
 
                         <div id="contenedor" style="display: none;">
-                            <div  class="container-fluid card shadow mb-4">
-                                <h4 class="mt-4">Agregar Negocio</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="nombreNegocio">Nombre Negocio:</label>
-                                            <input type="text" class="form-control" id="nombreNegocio" name="nombreNegocio">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="descripcion">Descripción</label>
-                                            <textarea name="descripcion" id="descripcion" cols="10" rows="1" class="form-control"></textarea>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="ubicacion">Ubicación:</label>
-                                            <input type="text" class="form-control" id="ubicacion" name="ubicacion">
-                                        </div>
-                                    </div>
+                            
+                              
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
+                                        Agregar Categoria
+                                      </button>
                                 </div>
-                                
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="">Horario:</label>
-                                            <div>
-                                                <label for="horaInicio">Desde</label>
-                                                <input type="time" name="horaInicio" id="horaInicio"value="08:00">
-                                                <label for="horaCierre"> Hasta</label>
-                                                <input type="time" name="horaCierre" id="horaCierre"value="17:00">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="urlUbicacion">Enlace Ubicación</label>
-                                            <input type="text" class="form-control" id="urlUbicacion" name="urlUbicacion">
-                                            <label for=""><strong>En <a href="https://www.google.com.ec/maps" target="_blank">Google Maps</a>, busque su Ubicación y en la opcion compartir se le genera el vinculo</strong> </label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="facebook">Facebook:</label>
-                                            <input type="text" class="form-control" id="facebook" name="facebook">
-                                            <label for=""><strong>Coloce su enlace de <a href="https://www.facebook.com/" target="_blank">Facebook</a></strong> </label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="telefono">Telefono:</label>
-                                            <input type="text" class="form-control" id="telefono" name="telefono">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="imagenPortadaNeg">Imagen Portada Negocio</label>
-                                            <input type="file" class="form-control" name="imagenPortadaNeg" id="imagenPortadaNeg">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="btn Agregar" class="text-white">Agregar</label>
-                                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar"  onclick="agregarNegocio()"> Agregar</button>
-                                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   style="display: none;"> Editar</button>
-                                        
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                           
                             <div class="table-responsive" id="contentListaNegocios">
                                 
 
@@ -202,6 +131,154 @@
                     </div>
                 </main>
                 
+            </div>
+        </div>
+
+
+
+        <!--MODALS-->
+        <!-- The Modal -->
+        <div class="modal" id="modalAgregar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Negocio</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreNegocio">Nombre Negocio:</label>
+                            <input type="text" class="form-control" id="nombreNegocio" name="nombreNegocio">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <textarea name="descripcion" id="descripcion" cols="10" rows="1" class="form-control"></textarea>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ubicacion">Ubicación:</label>
+                            <input type="text" class="form-control" id="ubicacion" name="ubicacion">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Horario:</label>
+                            <div>
+                                <label for="horaInicio">Desde</label>
+                                <input type="time" name="horaInicio" id="horaInicio"value="08:00">
+                                <label for="horaCierre"> Hasta</label>
+                                <input type="time" name="horaCierre" id="horaCierre"value="17:00">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urlUbicacion">Enlace Ubicación</label>
+                            <input type="text" class="form-control" id="urlUbicacion" name="urlUbicacion">
+                            <label for=""><strong>En <a href="https://www.google.com.ec/maps" target="_blank">Google Maps</a>, busque su Ubicación y en la opcion compartir se le genera el vinculo</strong> </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="facebook">Facebook:</label>
+                            <input type="text" class="form-control" id="facebook" name="facebook">
+                            <label for=""><strong>Coloce su enlace de <a href="https://www.facebook.com/" target="_blank">Facebook</a></strong> </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Telefono:</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagenPortadaNeg">Imagen Portada Negocio</label>
+                            <input type="file" class="form-control" name="imagenPortadaNeg" id="imagenPortadaNeg">
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar" data-dismiss="modal"  onclick="agregarNegocio()"> Agregar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--modal editar-->
+        <div class="modal" id="modalEditar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Negocio</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreNegocioEditar">Nombre Negocio:</label>
+                            <input type="text" class="form-control" id="nombreNegocioEditar" name="nombreNegocioEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="descripcionEditar">Descripción</label>
+                            <textarea name="descripcion" id="descripcionEditar" cols="10" rows="1" class="form-control"></textarea>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ubicacionEditar">Ubicación:</label>
+                            <input type="text" class="form-control" id="ubicacionEditar" name="ubicacionEditar">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Horario:</label>
+                            <div>
+                                <label for="horaInicioEditar">Desde</label>
+                                <input type="time" name="horaInicioEditar" id="horaInicioEditar"value="08:00">
+                                <label for="horaCierreEditar"> Hasta</label>
+                                <input type="time" name="horaCierreEditar" id="horaCierreEditar"value="17:00">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urlUbicacionEditar">Enlace Ubicación</label>
+                            <input type="text" class="form-control" id="urlUbicacionEditar" name="urlUbicacionEditar">
+                            <label for=""><strong>En <a href="https://www.google.com.ec/maps" target="_blank">Google Maps</a>, busque su Ubicación y en la opcion compartir se le genera el vinculo</strong> </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="facebookEditar">Facebook:</label>
+                            <input type="text" class="form-control" id="facebookEditar" name="facebookEditar">
+                            <label for=""><strong>Coloce su enlace de <a href="https://www.facebook.com/" target="_blank">Facebook</a></strong> </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefonoEditar">Telefono:</label>
+                            <input type="text" class="form-control" id="telefonoEditar" name="telefonoEditar">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagenPortadaNegEditar">Imagen Portada Negocio</label>
+                            <input type="file" class="form-control" name="imagenPortadaNegEditar" id="imagenPortadaNegEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   data-dismiss="modal"> Editar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
 

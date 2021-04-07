@@ -1,7 +1,5 @@
 function editar(id,nombreCategoria,nombreImagen){
-    document.getElementById('Agregar').style.display="none";
-    document.getElementById('editarBtn').style.display="block";
-
+  
 var boton=document.getElementById('editarBtn');
    
     //variable para editar
@@ -10,28 +8,25 @@ var boton=document.getElementById('editarBtn');
     
 
     //llenar el campo de nombre categoria
-    document.getElementById("nombreCategoria").value=nombreCategoria;
+    document.getElementById("nombreCategoriaEditar").value=nombreCategoria;
     eliminarImg(nombreImagen)
     //accion del boton
     boton.onclick=function(){
         
         //recuperar datos del file
-        var imagenNueva=document.getElementById("imagenCategoria").files[0];
+        var imagenNueva=document.getElementById("imagenCategoriaEditar").files[0];
         
         //si esta el campo de file vacio se va a cambiar todo lo demas menos la imagen
         if(imagenNueva==undefined){
             
-            var nombreCategoria=document.getElementById("nombreCategoria").value;
+            var nombreCategoria=document.getElementById("nombreCategoriaEditar").value;
 
             return editarColeccion.update({
                 nombreCategoria: nombreCategoria,
             })
             .then(() => {
-                document.getElementById('nombreCategoria').value='';
+                document.getElementById('nombreCategoriaEditar').value='';
                     
-                document.getElementById('Agregar').style.display="block";
-                document.getElementById('editarBtn').style.display="none"; 
-                
             })
             .catch((error) => {
                 // The document probably doesn't exist.
@@ -45,7 +40,7 @@ var boton=document.getElementById('editarBtn');
     }
 }
 function eliminarImg(nombreImagen){
-    var inputImage=document.getElementById('imagenCategoria');
+    var inputImage=document.getElementById('imagenCategoriaEditar');
     inputImage.addEventListener('change',function(){
         
         var storageRef = firebase.storage().ref("imagesCategorias");
@@ -61,7 +56,7 @@ function eliminarImg(nombreImagen){
 
 }
 function agregarImagen(id){
-    var imagenNueva=document.getElementById("imagenCategoria").files[0];
+    var imagenNueva=document.getElementById("imagenCategoriaEditar").files[0];
     //se crea la refencia en donde se va a agregar la imagen
     var referenciaImg = firebase.storage().ref("imagesCategorias/"+imagenNueva.name);
     var nombreImagen=imagenNueva.name;
@@ -77,7 +72,6 @@ function agregarImagen(id){
     function(){
         agregarImg.snapshot.ref.getDownloadURL().then(function (URL) {
             imgUrl=URL; 
-            console.log(imgUrl);
             subirColeccion(nombreImagen,imgUrl,id);
         });
         
@@ -88,7 +82,7 @@ function agregarImagen(id){
 function subirColeccion(nombreImagen,imgUrl,id){
 
     var editarColeccion = db.collection("items").doc(`${valorSelect}`).collection("categorias").doc(id)
-    var nombreCategoria=document.getElementById('nombreCategoria').value;
+    var nombreCategoria=document.getElementById('nombreCategoriaEditar').value;
     
     
 
@@ -98,12 +92,8 @@ function subirColeccion(nombreImagen,imgUrl,id){
         nombreImagen:nombreImagen
     })
     .then(() => {
-        document.getElementById('nombreCategoria').value='';
-        document.getElementById('imagenCategoria').value='';
-            
-        document.getElementById('Agregar').style.display="block";
-        document.getElementById('editarBtn').style.display="none"; 
-        
+        document.getElementById('nombreCategoriaEditar').value='';
+        document.getElementById('imagenCategoriaEditar').value='';        
     })
     .catch((error) => {
         // The document probably doesn't exist.

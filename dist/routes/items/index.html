@@ -17,7 +17,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
      <!--Autenticacion-->
-     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
     
 
     </head>
@@ -78,35 +78,10 @@
                 <main>
                     <div class="container-fluid card shadow mb-4">
                         <h1 class="mt-4">Items del Menu</h1>
-                        <div >
-                            <h4 class="mt-4">Agregar Item</h4>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="nombreItem">Nombre Item:</label>
-                                        <input type="text" class="form-control" id="nombreItem" name="nombreItem">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="iconoItem">Icono</label>
-                                        <input type="text" class="form-control" id="iconoItem" name="iconoItem">
-                                        <strong>(Seleccionar el name de los iconos de la siguiente <a href="https://ionicons.com/" target="_blank"> pagina</a>)</strong>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="btn Agregar" class="text-white">Agregar</label>
-                                        <button class="btn btn-primary form-control" id="Agregar" name="Agregar"  onclick="agregarItem()"> Agregar</button>
-                                        <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   style="display: none;"> Editar</button>
-                                        
-                                    </div>
-                                </div>
-                              </div>
-                              
-                            
-                            
+                        <div  class="form-group" >
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
+                                Agregar Item
+                              </button>
                         </div>
                        <div>
                            <div class="table-responsive">
@@ -135,6 +110,81 @@
             </div>
         </div>
 
+
+        <!--MODALS-->
+        <!-- The Modal -->
+        <div class="modal" id="modalAgregar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Item</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreItem">Nombre Item:</label>
+                            <input type="text" class="form-control" id="nombreItem" name="nombreItem">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="iconoItem">Icono</label>
+                            <input type="text" class="form-control" id="iconoItem" name="iconoItem">
+                            <strong>(Seleccionar el name de los iconos de la siguiente <a href="https://ionicons.com/" target="_blank"> pagina</a>)</strong>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="btn Agregar" class="text-white">Agregar</label>
+                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar" data-dismiss="modal"  onclick="agregarItem()"> Agregar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--modal editar-->
+        <div class="modal" id="modalEditar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Item</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreItemEditar">Nombre Item:</label>
+                            <input type="text" class="form-control" id="nombreItemEditar" name="nombreItemEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="iconoItemEditar">Icono</label>
+                            <input type="text" class="form-control" id="iconoItemEditar" name="iconoItemEditar">
+                            <strong>(Seleccionar el name de los iconos de la siguiente <a href="https://ionicons.com/" target="_blank"> pagina</a>)</strong>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   data-dismiss="modal"> Editar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    
+    
+            
+            
         <script src="../conextion.js"></script>
         <script src="./recolectarDatos.js"></script>
         <script  src="./agregar.js"></script>

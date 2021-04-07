@@ -33,7 +33,7 @@ function elegir(){
             querySnapshot.forEach((doc) => {
 
                 ultimoIdCategoria=Math.max(doc.id);
-                console.log(ultimoIdCategoria);
+                
         
                 tabla_categoria.innerHTML+=`
                 <tr>
@@ -42,7 +42,7 @@ function elegir(){
                 <td >${doc.data().nombreImagen}</td>
                 <td > <img src="${doc.data().imagenCategoria}" alt="imagen Categoria" style="width: 100px; height: 50px;"></td>
                 
-                <td><button class="btn btn-warning" onclick="editar('${doc.id}','${doc.data().nombreCategoria}','${doc.data().nombreImagen}')">Editar</button> </td>
+                <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar" onclick="editar('${doc.id}','${doc.data().nombreCategoria}','${doc.data().nombreImagen}')">Editar</button> </td>
                 <td><button class="btn btn-danger" onclick="eliminar('${doc.id}','${doc.data().nombreImagen}')">Eliminar</button></th>
                 </tr>   
                `
@@ -51,7 +51,6 @@ function elegir(){
             if(ultimoIdCategoria === undefined){
                 ultimoIdCategoria=0;
             }
-            console.log("id del valor ultimo"+ultimoIdCategoria);
             //aumentar un valor para que no se repitan los Id
             ultimoIdCategoria=ultimoIdCategoria+1;
             

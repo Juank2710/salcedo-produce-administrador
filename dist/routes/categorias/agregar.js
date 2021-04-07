@@ -34,7 +34,6 @@ function agregarCategoria(){
     }
     
     function subirColeccion(imgUrl){
-        console.log("Valor al subir"+ultimoIdCategoria);
         var nombreCategoria=document.getElementById('nombreCategoria').value;
 
        db.collection("items").doc(`${valorSelect}`).collection("categorias").doc(`${ultimoIdCategoria}`).set({

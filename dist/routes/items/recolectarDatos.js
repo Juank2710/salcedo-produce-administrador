@@ -18,7 +18,7 @@ db.collection("items").onSnapshot((querySnapshot) => {
         <th scope="row">${doc.id}</th>
         <td>${doc.data().nombreItem}</td>
         <td>${doc.data().icono}</td>
-        <td><button class="btn btn-warning" onclick="editar('${doc.id}','${doc.data().nombreItem}','${doc.data().icono}')">Editar</button> </td>
+        <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar"  onclick="editar('${doc.id}','${doc.data().nombreItem}','${doc.data().icono}')">Editar</button> </td>
         <th scope="col"><button class="btn btn-danger" onclick="eliminar('${doc.id}')">Eliminar</button></th>
       </tr>`
 

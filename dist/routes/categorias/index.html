@@ -100,32 +100,13 @@
                             
                         
 
-                        <div id="contenedor" style="display: none;">
-                            <div>
-                                <h4 class="mt-4">Agregar Categorias</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="nombreCategoria">Nombre Categoria:</label>
-                                            <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="imagenCategoria">Imagen</label>
-                                            <input type="file" class="form-control" name="imagenCategoria" id="imagenCategoria">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="btn Agregar" class="text-white">Agregar</label>
-                                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar"  onclick="agregarCategoria()"> Agregar</button>
-                                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   style="display: none;"> Editar</button>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div id="contenedor" style="display: none;" >
+                            <br>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
+                                    Agregar Categoria
+                                  </button>
                             </div>
-                        
                             <div>
                                <div class="table-responsive">
                                    <table class="table table-bordered" >
@@ -155,6 +136,78 @@
                 
             </div>
         </div>
+
+         <!--MODALS-->
+        <!-- The Modal -->
+        <div class="modal" id="modalAgregar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Categoria</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreCategoria">Nombre Categoria:</label>
+                            <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imagenCategoria">Imagen</label>
+                            <input type="file" class="form-control" name="imagenCategoria" id="imagenCategoria">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar" data-dismiss="modal"  onclick="agregarCategoria()"> Agregar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--modal editar-->
+        <div class="modal" id="modalEditar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Categoria</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreCategoria">Nombre Categoria:</label>
+                            <input type="text" class="form-control" id="nombreCategoriaEditar" name="nombreCategoriaEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imagenCategoria">Imagen</label>
+                            <input type="file" class="form-control" name="imagenCategoriaEditar" id="imagenCategoriaEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   data-dismiss="modal"> Editar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+
+
+
+
 
         <script src="../conextion.js"></script>
         <script src="./recolectarDatos.js"></script>

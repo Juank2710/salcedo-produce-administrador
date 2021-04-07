@@ -115,40 +115,14 @@
                             </div>
                         </div>
                             
-                            
-                        
-
                         <div id="contenedor" style="display: none;">
                             <div  class="container-fluid card shadow mb-4" id="formulario">
-                                <h4 class="mt-4">Agregar Imagen</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="imagenSlider">Imagen Portada Negocio</label>
-                                            <input type="file" class="form-control" name="imagenSlider" id="imagenSlider">
-                                        </div>
-                                    </div>
-                                    <div class="col" style="display: none;" id="contentNombreImagen">
-                                        <div class="form-group" >
-                                            <label for="nombreImageneditada">Nombre de la Imagen </label>
-                                            <input type="text" class="form-control" name="nombreImageneditada" id="nombreImageneditada" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="btn Agregar" class="text-white">Agregar</label>
-                                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar"  onclick="agregarImagenSlider()"> Agregar</button>
-                                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   style="display: none;"> Editar</button>
-                                        </div>
-                                    </div>
-                                    
+                                <div class="form-group mt-4">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
+                                        Agregar Categoria
+                                      </button>
                                 </div>
-                                
-                                
-                                
-                               
 
-                                
                                 <div id="contentTabla" class="table-responsive">
                                     <table class="table table-bordered" >
                                         <thead class="text-primary">
@@ -174,6 +148,70 @@
                     </div>
                 </main>
                 
+            </div>
+        </div>
+
+
+             <!--MODALS-->
+        <!-- The Modal -->
+        <div class="modal" id="modalAgregar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Imagen Slider</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="imagenSlider">Imagen Slider</label>
+                            <input type="file" class="form-control" name="imagenSlider" id="imagenSlider">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="btn Agregar" class="text-white">Agregar</label>
+                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar" data-dismiss="modal"  onclick="agregarImagenSlider()"> Agregar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--modal editar-->
+        <div class="modal" id="modalEditar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Imagen Slider</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group" >
+                            <label for="nombreImageneditada">Nombre de la Imagen </label>
+                            <input type="text" class="form-control" name="nombreImageneditada" id="nombreImageneditada" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imagenSliderEditar">Imagen Slider</label>
+                            <input type="file" class="form-control" name="imagenSliderEditar" id="imagenSliderEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   data-dismiss="modal"> Editar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
 
