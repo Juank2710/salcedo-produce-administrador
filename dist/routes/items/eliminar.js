@@ -5,6 +5,5 @@ function eliminar(id){
     }).catch((error) => {
         console.error("Error removing document: ", error);
     });
-    var tabla=document.getElementById('tabla')
-    tabla.innerHTML='';
+    
 }

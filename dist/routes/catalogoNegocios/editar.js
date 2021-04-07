@@ -1,15 +1,11 @@
 function editar(id,nombreNegocio,descripcion,ubicacion,horaInicio,horaCierre,urlUbicacion,facebook,telefono,nombreImagen){
-    document.getElementById('Agregar').style.display="none";
-    document.getElementById('editarBtn').style.display="block";
-
-var boton=document.getElementById('editarBtn');
 
     eliminarImg(nombreImagen);
 
 
     var editarColeccion = db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(id);
         
-    
+    var boton=document.getElementById('Agregar');
     boton.innerHTML='Editar';
     document.getElementById('nombreNegocio').value=nombreNegocio;
     document.getElementById('descripcion').value=descripcion;
@@ -52,9 +48,7 @@ var boton=document.getElementById('editarBtn');
                 document.getElementById('horaCierre').value='17:00';
                 document.getElementById('urlUbicacion').value='';
                 document.getElementById('facebook').value='';
-                document.getElementById('telefono').value='';    
-                document.getElementById('Agregar').style.display="block";
-                document.getElementById('editarBtn').style.display="none";      
+                document.getElementById('telefono').value='';          
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
@@ -147,9 +141,7 @@ function subirColeccion(nombreImagen, imgUrl,id){
           document.getElementById('urlUbicacion').value='';
           document.getElementById('facebook').value='';
           document.getElementById('telefono').value='';
-          document.getElementById('imagenPortadaNeg').value='';   
-          document.getElementById('Agregar').style.display="block";
-          document.getElementById('editarBtn').style.display="none";         
+          document.getElementById('imagenPortadaNeg').value='';            
       })
       .catch((error) => {
           console.error("Error adding document: ", error);

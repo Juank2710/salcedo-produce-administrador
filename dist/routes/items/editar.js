@@ -1,8 +1,13 @@
 function editar(id,nombreItem,icono){
+    document.getElementById('Agregar').style.display="none";
+    document.getElementById('editarBtn').style.display="block";
+
+var boton=document.getElementById('editarBtn');
+   
     var nombreItem=document.getElementById('nombreItem').value=nombreItem;
     var icono=document.getElementById('iconoItem').value=icono;
-    var boton=document.getElementById('Agregar');
-    boton.innerHTML='Editar';
+    
+    
     boton.onclick=function(){
 
         var editarItem = db.collection("items").doc(id);
@@ -18,10 +23,13 @@ function editar(id,nombreItem,icono){
             boton.innerHTML='Agregar';
             document.getElementById('nombreItem').value='';
             document.getElementById('iconoItem').value='';
+            
         })
         .catch((error) => {
             // The document probably doesn't exist.
             console.error("Error updating document: ", error);
         });
+
     }
+    
 }

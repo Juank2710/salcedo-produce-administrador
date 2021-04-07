@@ -1,11 +1,13 @@
 function editar(id,nombreCategoria,nombreImagen){
-    
+    document.getElementById('Agregar').style.display="none";
+    document.getElementById('editarBtn').style.display="block";
+
+var boton=document.getElementById('editarBtn');
    
     //variable para editar
     var editarColeccion = db.collection("items").doc(`${valorSelect}`).collection("categorias").doc(id)
     //configurar el boton
-    var boton=document.getElementById('Agregar');
-    boton.innerHTML='Editar';
+    
 
     //llenar el campo de nombre categoria
     document.getElementById("nombreCategoria").value=nombreCategoria;
@@ -25,8 +27,10 @@ function editar(id,nombreCategoria,nombreImagen){
                 nombreCategoria: nombreCategoria,
             })
             .then(() => {
-                boton.innerHTML='Agregar';
                 document.getElementById('nombreCategoria').value='';
+                    
+                document.getElementById('Agregar').style.display="block";
+                document.getElementById('editarBtn').style.display="none"; 
                 
             })
             .catch((error) => {
@@ -85,7 +89,7 @@ function subirColeccion(nombreImagen,imgUrl,id){
 
     var editarColeccion = db.collection("items").doc(`${valorSelect}`).collection("categorias").doc(id)
     var nombreCategoria=document.getElementById('nombreCategoria').value;
-    var boton=document.getElementById('Agregar');
+    
     
 
     return editarColeccion.update({
@@ -94,9 +98,11 @@ function subirColeccion(nombreImagen,imgUrl,id){
         nombreImagen:nombreImagen
     })
     .then(() => {
-        boton.innerHTML='Agregar';
         document.getElementById('nombreCategoria').value='';
         document.getElementById('imagenCategoria').value='';
+            
+        document.getElementById('Agregar').style.display="block";
+        document.getElementById('editarBtn').style.display="none"; 
         
     })
     .catch((error) => {
