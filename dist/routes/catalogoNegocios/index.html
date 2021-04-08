@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Categorias</title>
+        <title>Catalogo Negocios</title>
         <link href="../../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -70,11 +70,11 @@
                             </a>
                             <a class="nav-link" href="../sliderNegocios/index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Configuración Slider de cada negocio
+                                 Slider cada negocio
                             </a>
                             <a class="nav-link" href="../catalogoNegocios/index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Configuracion del catálogo de cada Negocio
+                                Catálogo cada Negocio
                             </a>
                             
                         </div>
@@ -88,7 +88,7 @@
                 <main>
                     <div >
                         <div class="container-fluid card shadow mb-4">
-                            <h1 class="mt-4">Lista negocios</h1>
+                            <h1 class="mt-4">Catalogo Negocios</h1>
                             
                             <div class="row">
                                 <div class="col">
@@ -105,94 +105,43 @@
                                     </select>
                                 </div>
 
+                                <div class="col" id="contentNegocio" style="display: none;">
+                                    <label for="selectNegocio">Seleccione El Negocio (Este se tomara en cuenta para agregar los negocios)</label>
+                                    <select class="form-control" id="selectNegocio" name="selectNegocio" onchange="activarContent()" > 
+                                        
+                                    </select>
+                                </div>
+
                             </div>
                         </div>
                             
-                            
-                        
-
                         <div id="contenedor" style="display: none;">
-                            <div  class="container-fluid card shadow mb-4">
-                                <h4 class="mt-4">Agregar Negocio</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="nombreNegocio">Nombre Negocio:</label>
-                                            <input type="text" class="form-control" id="nombreNegocio" name="nombreNegocio">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="descripcion">Descripción</label>
-                                            <textarea name="descripcion" id="descripcion" cols="10" rows="1" class="form-control"></textarea>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="ubicacion">Ubicación:</label>
-                                            <input type="text" class="form-control" id="ubicacion" name="ubicacion">
-                                        </div>
-                                    </div>
+                            <div  class="container-fluid card shadow mb-4" id="formulario">
+                                <div class="form-group mt-4">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
+                                        Agregar Prducto
+                                      </button>
                                 </div>
-                                
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="">Horario:</label>
-                                            <div>
-                                                <label for="horaInicio">Desde</label>
-                                                <input type="time" name="horaInicio" id="horaInicio"value="08:00">
-                                                <label for="horaCierre"> Hasta</label>
-                                                <input type="time" name="horaCierre" id="horaCierre"value="17:00">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="urlUbicacion">Enlace Ubicación</label>
-                                            <input type="text" class="form-control" id="urlUbicacion" name="urlUbicacion">
-                                            <label for=""><strong>En <a href="https://www.google.com.ec/maps" target="_blank">Google Maps</a>, busque su Ubicación y en la opcion compartir se le genera el vinculo</strong> </label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="facebook">Facebook:</label>
-                                            <input type="text" class="form-control" id="facebook" name="facebook">
-                                            <label for=""><strong>Coloce su enlace de <a href="https://www.facebook.com/" target="_blank">Facebook</a></strong> </label>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="telefono">Telefono:</label>
-                                            <input type="text" class="form-control" id="telefono" name="telefono">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="imagenPortadaNeg">Imagen Portada Negocio</label>
-                                            <input type="file" class="form-control" name="imagenPortadaNeg" id="imagenPortadaNeg">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="btn Agregar" class="text-white">Agregar</label>
-                                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar"  onclick="agregarNegocio()"> Agregar</button>
+                                <div id="contentTabla" class="table-responsive">
+                                    <table class="table table-bordered" >
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Nombre Producto</th>
+                                                <th scope="col">Descripción</th>
+                                                <th scope="col">Valor</th>
+                                                <th scope="col">Imagen</th>
+                                                <th scope="col" colspan="2" class=" text-center">Acción</th>
+                                            </tr>
+                                        </thead>
                                         
-                                        </div>
-                                    </div>
+                                        <tbody id="tabla_imagenes">
+                                            
+                                        </tbody>
+                                    </table>
+                                      
                                 </div>
-
-                            </div>
-
-                            <div class="table-responsive" id="contentListaNegocios">
-                                
-
                             </div>
                          
                         </div>
@@ -201,6 +150,93 @@
                     </div>
                 </main>
                 
+            </div>
+        </div>
+
+
+             <!--MODALS-->
+        <!-- The Modal -->
+        <div class="modal" id="modalAgregar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar Producto</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreProducto">Nombre Producto</label>
+                            <input type="text" class="form-control" name="nombreProducto" id="nombreProducto">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcionProducto">Descripcion</label>
+                            <input type="text" class="form-control" name="descripcionProducto" id="descripcionProducto">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valorProducto">Valor</label>
+                            <input type="number" class="form-control" name="valorProducto" id="valorProducto" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="imagenProducto">Imagen Producto</label>
+                            <input type="file" class="form-control" name="imagenProducto" id="imagenProducto">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="btn Agregar" class="text-white">Agregar</label>
+                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar" data-dismiss="modal"  onclick="agregarProducto()"> Agregar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--modal editar-->
+        <div class="modal" id="modalEditar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Producto</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nombreProductoEditar">Nombre Producto</label>
+                            <input type="text" class="form-control" name="nombreProductoEditar" id="nombreProductoEditar">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcionProductoEditar">Descripcion</label>
+                            <input type="text" class="form-control" name="descripcionProductoEditar" id="descripcionProductoEditar">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valorProductoEditar">Valor</label>
+                            <input type="number" class="form-control" name="valorProductoEditar" id="valorProductoEditar" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="imagenProductoEditar">Imagen Producto</label>
+                            <input type="file" class="form-control" name="imagenProductoEditar" id="imagenProductoEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="editarBtn" name="editarBtn"   data-dismiss="modal"> Editar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
 

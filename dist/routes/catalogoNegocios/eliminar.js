@@ -1,7 +1,7 @@
 function eliminar(id,nombreImagen){
-    db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(id).delete().then(() => {
+    db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(`${valorSelectNegocio}`).collection("catalogo").doc(id).delete().then(() => {
         
-        var storageRef = firebase.storage().ref("ImagesNegocios");
+        var storageRef = firebase.storage().ref("imagesCatalogo");
         var desertRef = storageRef.child(nombreImagen);
         desertRef.delete().then(function() {
             // File deleted successfully

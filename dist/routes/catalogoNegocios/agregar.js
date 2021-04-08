@@ -1,14 +1,14 @@
 var nombreImagen;
 
-function agregarNegocio(){
+function agregarProducto(){
     
-    var imagenPortadaNeg=document.getElementById('imagenPortadaNeg').files[0];
-    if(imagenPortadaNeg!==undefined){
+    var imagenProducto=document.getElementById('imagenProducto').files[0];
+    if(imagenProducto!==undefined){
 
-        var referenciaImg = firebase.storage().ref("ImagesNegocios/"+imagenPortadaNeg.name);
-        nombreImagen=imagenPortadaNeg.name;
+        var referenciaImg = firebase.storage().ref("imagesCatalogo/"+imagenProducto.name);
+        nombreImagen=imagenProducto.name;
         //subir imagen
-        var agregarImg=referenciaImg.put(imagenPortadaNeg);
+        var agregarImg=referenciaImg.put(imagenProducto);
         //guardar url de la imagen
         
         //revisar que se suba la imagen
@@ -29,44 +29,22 @@ function agregarNegocio(){
     }else{
         alert("No a seleccionado una imagen");
     }
-
 }
 function subir(imgUrl){
-    console.log("ID DEL ARCHVIO "+ultimoIdNegocio);
-    console.log("URL IMAGEN "+imgUrl);
-    console.log("nombre imagen "+nombreImagen);
-    
-    var nombreNegocio=document.getElementById('nombreNegocio').value;
-    var descripcion=document.getElementById('descripcion').value;
-    var ubicacion=document.getElementById('ubicacion').value;
-    var horaInicio=document.getElementById('horaInicio').value;
-    var horaCierre=document.getElementById('horaCierre').value;
-    var urlUbicacion=document.getElementById('urlUbicacion').value;
-    var facebook=document.getElementById('facebook').value;
-    var telefono=document.getElementById('telefono').value;
-
-    db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(`${ultimoIdNegocio}`).set({
-        nombreNegocio: nombreNegocio,
-        descripcion: descripcion,
-        ubicacion:ubicacion,
-        horaInicio:horaInicio,
-        horaCierre:horaCierre,
-        urlUbicacion:urlUbicacion,
-        facebook:facebook,
-        telefono:telefono,
+    var nombreProducto=document.getElementById('nombreProducto').value;
+    var descripcion=document.getElementById('descripcionProducto').value;
+    var valor=document.getElementById('valorProducto').value;
+    db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(`${valorSelectNegocio}`).collection("catalogo").doc(`${ultimoIdCatalogo}`).set({
+        nombreProducto:nombreProducto,
+        descripcion:descripcion,
+        valor:valor,
         nombreImagen:nombreImagen,
-        imagenPortada:imgUrl
+        imagenProducto:imgUrl
       })
       .then(() => {
-          document.getElementById('nombreNegocio').value='';
-          document.getElementById('descripcion').value='';
-          document.getElementById('ubicacion').value='';
-          document.getElementById('horaInicio').value='08:00';
-          document.getElementById('horaCierre').value='17:00';
-          document.getElementById('urlUbicacion').value='';
-          document.getElementById('facebook').value='';
-          document.getElementById('telefono').value='';
-          document.getElementById('imagenPortadaNeg').value='';          
+        document.getElementById('nombreProducto').value='';
+        document.getElementById('descripcionProducto').value='';
+        document.getElementById('valorProducto').value='';
       })
       .catch((error) => {
           console.error("Error adding document: ", error);
@@ -74,44 +52,3 @@ function subir(imgUrl){
     
     
 }
-function subirColeccion(imgUrl){
-
-   /* var nombreNegocio=document.getElementById('nombreNegocio').value;
-    var descripcion=document.getElementById('descripcion').value;
-    var ubicacion=document.getElementById('ubicacion').value;
-    var horaInicio=document.getElementById('horaInicio').value;
-    var horaCierre=document.getElementById('horaCierre').value;
-    var urlUbicacion=document.getElementById('urlUbicacion').value;
-    var facebook=document.getElementById('facebook').value;
-    var telefono=document.getElementById('telefono').value;
-    //subir coleccion*/
-    console.log("ID DEL ARCHVIO"+ultimoIdNegocio);
-    console.log("URL IMAGEN"+imgUrl);
-    
-
-}
-/*db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(`${ultimoIdNegocio}`).set({
-        nombreNegocio: nombreNegocio,
-        descripcion: descripcion,
-        ubicacion:ubicacion,
-        horaInicio:horaInicio,
-        horaCierre:horaCierre,
-        urlUbicacion:urlUbicacion,
-        facebook:facebook,
-        telefono:telefono,
-        nombreImagen:nombreImagen,
-        imagenPortada:imgUrl
-      })
-      .then(() => {
-          document.getElementById('nombreNegocio').value='';
-          document.getElementById('descripcion').value='';
-          document.getElementById('ubicacion').value='';
-          document.getElementById('horaInicio').value='';
-          document.getElementById('horaCierre').value='';
-          document.getElementById('urlUbicacion').value='';
-          document.getElementById('facebook').value='';
-          document.getElementById('telefono').value='';          
-      })
-      .catch((error) => {
-          console.error("Error adding document: ", error);
-      });*/

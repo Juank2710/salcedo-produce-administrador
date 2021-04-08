@@ -1,71 +1,55 @@
-function editar(id,nombreNegocio,descripcion,ubicacion,horaInicio,horaCierre,urlUbicacion,facebook,telefono,nombreImagen){
 
-    eliminarImg(nombreImagen);
+function editar(id,nombreProducto,descripcion,valor,nombreImagen){
 
+var boton=document.getElementById('editarBtn');
 
-    var editarColeccion = db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(id);
+eliminarImg(nombreImagen);
+
+    document.getElementById('nombreProductoEditar').value=nombreProducto;
+    document.getElementById('descripcionProductoEditar').value=descripcion;
+    document.getElementById('valorProductoEditar').value=valor;
+
+    var editarColeccion = db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(`${valorSelectNegocio}`).collection("catalogo").doc(id);
         
-    var boton=document.getElementById('Agregar');
-    boton.innerHTML='Editar';
-    document.getElementById('nombreNegocio').value=nombreNegocio;
-    document.getElementById('descripcion').value=descripcion;
-    document.getElementById('ubicacion').value=ubicacion;
-    document.getElementById('horaInicio').value=horaInicio;
-    document.getElementById('horaCierre').value=horaCierre;
-    document.getElementById('urlUbicacion').value=urlUbicacion;
-    document.getElementById('facebook').value=facebook;
-    document.getElementById('telefono').value=telefono;
-
+   
 
     boton.onclick=function(){
-        var imagenNueva=document.getElementById("imagenPortadaNeg").files[0];
-        if(imagenNueva==undefined){
-            var nombreNegocio=document.getElementById('nombreNegocio').value;
-            var descripcion=document.getElementById('descripcion').value;
-            var ubicacion=document.getElementById('ubicacion').value;
-            var horaInicio=document.getElementById('horaInicio').value;
-            var horaCierre=document.getElementById('horaCierre').value;
-            var urlUbicacion=document.getElementById('urlUbicacion').value;
-            var facebook=document.getElementById('facebook').value;
-            var telefono=document.getElementById('telefono').value;
+        var imagenNueva=document.getElementById("imagenProductoEditar").files[0];
+        if(imagenNueva == undefined){
+            
+            var nombreProductoEditada=document.getElementById('nombreProductoEditar').value;
+            var DescripcionEditada=document.getElementById('descripcionProductoEditar').value;
+            var valorEditada=document.getElementById('valorProductoEditar').value;
+            
             return editarColeccion.update({
-                nombreNegocio: nombreNegocio,
-                descripcion: descripcion,
-                ubicacion:ubicacion,
-                horaInicio:horaInicio,
-                horaCierre:horaCierre,
-                urlUbicacion:urlUbicacion,
-                facebook:facebook,
-                telefono:telefono
+                nombreProducto:nombreProductoEditada,
+                descripcion:DescripcionEditada,
+                valor:valorEditada,
                 
             })
-            .then(() => {
-                boton.innerHTML='Agregar';
-                document.getElementById('nombreNegocio').value='';
-                document.getElementById('descripcion').value='';
-                document.getElementById('ubicacion').value='';
-                document.getElementById('horaInicio').value='08:00';
-                document.getElementById('horaCierre').value='17:00';
-                document.getElementById('urlUbicacion').value='';
-                document.getElementById('facebook').value='';
-                document.getElementById('telefono').value='';          
+            .then(()=>{
+                document.getElementById('nombreProductoEditar').value='';
+                document.getElementById('descripcionProductoEditar').value='';
+                document.getElementById('valorProductoEditar').value='';
+                
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
             });
-
-        }else{
-            agregarImagen(id)
             
+        }else{
+            agregarImagen(id);
         }
     }
 }
+
+
 function eliminarImg(nombreImagen){
 
-    var inputImage=document.getElementById('imagenPortadaNeg');
+    var inputImage=document.getElementById('imagenProductoEditar');
     inputImage.addEventListener('change',function(){
         
-        var storageRef = firebase.storage().ref("ImagesNegocios");
+        var storageRef = firebase.storage().ref("imagesCatalogo");
         var desertRef = storageRef.child(nombreImagen);
         desertRef.delete().then(function() {
             // File deleted successfully
@@ -79,10 +63,10 @@ function eliminarImg(nombreImagen){
 }
 
 function agregarImagen(id){
-    var imagenPortadaNeg=document.getElementById('imagenPortadaNeg').files[0];
+    var imagenPortadaNeg=document.getElementById('imagenProductoEditar').files[0];
     if(imagenPortadaNeg!==undefined){
 
-        var referenciaImg = firebase.storage().ref("ImagesNegocios/"+imagenPortadaNeg.name);
+        var referenciaImg = firebase.storage().ref("imagesCatalogo/"+imagenPortadaNeg.name);
         var nombreImagen=imagenPortadaNeg.name;
         //subir imagen
         var agregarImg=referenciaImg.put(imagenPortadaNeg);
@@ -107,41 +91,23 @@ function agregarImagen(id){
     }
 }
 function subirColeccion(nombreImagen, imgUrl,id){
-    var boton=document.getElementById('Agregar');
-
-
-    var nombreNegocio=document.getElementById('nombreNegocio').value;
-    var descripcion=document.getElementById('descripcion').value;
-    var ubicacion=document.getElementById('ubicacion').value;
-    var horaInicio=document.getElementById('horaInicio').value;
-    var horaCierre=document.getElementById('horaCierre').value;
-    var urlUbicacion=document.getElementById('urlUbicacion').value;
-    var facebook=document.getElementById('facebook').value;
-    var telefono=document.getElementById('telefono').value;
+    var nombreProductoEditada=document.getElementById('nombreProductoEditar').value;
+    var DescripcionEditada=document.getElementById('descripcionProductoEditar').value;
+    var valorEditada=document.getElementById('valorProductoEditar').value;
+    
     //subir coleccion
-    db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(id).set({
-        nombreNegocio: nombreNegocio,
-        descripcion: descripcion,
-        ubicacion:ubicacion,
-        horaInicio:horaInicio,
-        horaCierre:horaCierre,
-        urlUbicacion:urlUbicacion,
-        facebook:facebook,
-        telefono:telefono,
+    db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(`${valorSelectNegocio}`).collection("catalogo").doc(id).set({
+        nombreProducto:nombreProductoEditada,
+        descripcion:DescripcionEditada,
+        valor:valorEditada,
         nombreImagen:nombreImagen,
         imagenPortada:imgUrl
+        
       })
       .then(() => {
-        boton.innerHTML='Agregar';
-          document.getElementById('nombreNegocio').value='';
-          document.getElementById('descripcion').value='';
-          document.getElementById('ubicacion').value='';
-          document.getElementById('horaInicio').value='08:00';
-          document.getElementById('horaCierre').value='17:00';
-          document.getElementById('urlUbicacion').value='';
-          document.getElementById('facebook').value='';
-          document.getElementById('telefono').value='';
-          document.getElementById('imagenPortadaNeg').value='';            
+        document.getElementById('nombreProductoEditar').value='';
+        document.getElementById('descripcionProductoEditar').value='';
+        document.getElementById('valorProductoEditar').value='';           
       })
       .catch((error) => {
           console.error("Error adding document: ", error);
