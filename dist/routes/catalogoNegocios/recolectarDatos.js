@@ -95,7 +95,6 @@ function activarContent(){
                 ultimoIdCatalogo=Math.max(doc.id);
                 tabla_slider.innerHTML+=`
                 <tr>
-                    <th scope="row">${doc.id}</th>
                     <td>${doc.data().nombreProducto}</td>
                     <td>${doc.data().descripcion}</td>
                     <td>${doc.data().valor}</td>

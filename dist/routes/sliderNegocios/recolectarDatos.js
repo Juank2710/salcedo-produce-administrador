@@ -95,12 +95,11 @@ function activarContent(){
                 ultimoIdSlider=Math.max(doc.id);
                 tabla_slider.innerHTML+=`
                 <tr>
-                    <th scope="row">${doc.id}</th>
                     <td>${doc.data().nombreImagen}</td>
                     <td><img src="${doc.data().imagenSlider}" alt="imagen Categoria" style="width: 100px; height: 50px;"></td>
 
                     <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar" onclick="editar('${doc.id}','${doc.data().nombreImagen}')">Editar</button> </td>
-                    <th scope="col"><button class="btn btn-danger" onclick="eliminar('${doc.id}')">Eliminar</button></th>
+                    <th scope="col"><button class="btn btn-danger" onclick="eliminar('${doc.id}','${doc.data().nombreImagen}')">Eliminar</button></th>
                 </tr>
                `
             });

@@ -32,9 +32,6 @@ function agregarImagenSlider(){
 
 }
 function subir(imgUrl){
-    console.log("ID DEL ARCHVIO "+ultimoIdSlider);
-    console.log("URL IMAGEN "+imgUrl);
-    console.log("nombre imagen "+nombreImagen);
     
     db.collection("items").doc(`${valorSelectItem}`).collection("categorias").doc(`${valorSelectCategoria}`).collection("listaNegocios").doc(`${valorSelectNegocio}`).collection("slider").doc(`${ultimoIdSlider}`).set({
         

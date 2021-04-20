@@ -43,7 +43,7 @@ var boton=document.getElementById('editarBtn');
                 agregarImg.snapshot.ref.getDownloadURL().then((URL)=> {
                     var imgUrl=URL; 
                     
-                    accionEditar(imgUrl,nombreImagenNueva,editarColeccion,boton)
+                    accionEditar(imgUrl,nombreImagenNueva,editarColeccion)
                 });
             }
             );
@@ -57,7 +57,7 @@ var boton=document.getElementById('editarBtn');
 function btnEditar(){
     
 }
-function accionEditar(imgUrl,nombreImagenNueva,editarColeccion,boton){
+function accionEditar(imgUrl,nombreImagenNueva,editarColeccion){
     return editarColeccion.update({
         nombreImagen: nombreImagenNueva,
         imagenSlider: imgUrl,

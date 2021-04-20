@@ -37,7 +37,6 @@ function elegir(){
         
                 tabla_categoria.innerHTML+=`
                 <tr>
-                <td >${doc.id}</td>
                 <td >${doc.data().nombreCategoria}</td>
                 <td >${doc.data().nombreImagen}</td>
                 <td > <img src="${doc.data().imagenCategoria}" alt="imagen Categoria" style="width: 100px; height: 50px;"></td>

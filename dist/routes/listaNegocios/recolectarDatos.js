@@ -59,7 +59,6 @@ function activarListaNeg(){
                     <table class="table table-bordered">
                         <thead class="text-primary">
                             <tr>
-                                <th scope="col">ID</th>
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Ubicacion</th>
                                 <th scope="col">Horario</th>
@@ -71,7 +70,6 @@ function activarListaNeg(){
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="col">${doc.id}</td>
                                 <td scope="col">${doc.data().descripcion}</td>
                                 <td scope="col">${doc.data().ubicacion}</td>
                                 <td scope="col">Dede ${doc.data().horaInicio} Hasta ${doc.data().horaCierre}</td>

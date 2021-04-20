@@ -6,30 +6,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Items</title>
+        <title>Configuración General</title>
         <link href="../../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
-       
-         <!--firestore-->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
-     <!--Autenticacion-->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-    
 
+
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+             <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+        
+             <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+        <!--firebase-->
+        <!--firestore-->
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+      
+       
+ <!--Autenticacion-->
+ <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    
+        
+                
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar "  style="background: black;">
-            <a class="navbar-brand text-white" href="index.html">Salcedo Produce</a>
+        <nav class="sb-topnav navbar navbar-expand navbar  "  style="background: black;">
+            <a class=" navbar-brand text-white" href="index.html">Salcedo Produce</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <a class="nav-link dropdown-toggle " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
@@ -69,7 +80,6 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Configuracion de enlaces y publicidad 
                             </a>
-                            
                         </div>
                     </div>
                     
@@ -80,65 +90,135 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid card shadow mb-4">
-                        <h1 class="mt-4">Items del Menu</h1>
-                        <div  class="form-group" >
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregar">
-                                Agregar Item
-                              </button>
+                        
+                        <h3 class="mt-4">Enlaces Encabezado</h3>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered" >
+                                <thead class="text-primary">
+                                    <tr>
+
+                                        <th scope="col">Facebook</th>
+                                        <th scope="col">Youtube</th>
+                                        <th scope="col"  class=" text-center">Acción</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody id="tabla_Enlaces">
+                                    
+                                </tbody>
+                            </table>
                         </div>
-                       <div>
-                           <div class="table-responsive">
-                               <table class="table table-bordered" >
-                                   <thead class="text-primary">
-                                       <tr>
+                    </div>
 
-                                           <th scope="col">Nombre Item</th>
-                                           <th scope="col">Icono</th>
-                                           <th scope="col" colspan="2" class=" text-center">Acción</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody id="tabla_items">
-
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="container-fluid card shadow mb-4">
+                        <h3 class="mt-4">Slider Publicitario</h3>
+                        <div class="form-group mt-4">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarImagen">
+                                Agregar Imagen
+                            </button>
                         </div>
+                        
+                        <div id="contentTabla" class="table-responsive">
+                            <table class="table table-bordered" >
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th scope="col">Nombre Imagen</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col" colspan="2" class=" text-center">Acción</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody id="tabla_imagenes">
+                                    
+                                </tbody>
+                            </table>
+                            
+                        </div> 
+                       
+                    </div>
+
+                    <div class="container-fluid card shadow mb-4">
+                        
+                        <h3 class="mt-4">Imagen PopUp</h3>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered" >
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th scope="col">Nombre Imagen</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col" colspan="2" class=" text-center">Acción</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody id="tabla_PopUp">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
                         
-                    </div>
+
+                        
                 </main>
                 
             </div>
         </div>
 
-
-        <!--MODALS-->
+         <!--MODALS-->
         <!-- The Modal -->
-        <div class="modal" id="modalAgregar">
+        <div class="modal" id="modalAgregarImagen">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Agregar Item</h4>
+                        <h4 class="modal-title">Agregar Imagen Slider</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="nombreItem">Nombre Item:</label>
-                            <input type="text" class="form-control" id="nombreItem" name="nombreItem">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="iconoItem">Icono</label>
-                            <input type="text" class="form-control" id="iconoItem" name="iconoItem">
-                            <strong>(Seleccionar el name de los iconos de la siguiente <a href="https://ionicons.com/" target="_blank"> pagina</a>)</strong>
+                            <label for="imagenSlider">Imagen Slider</label>
+                            <input type="file" class="form-control" name="imagenSlider" id="imagenSlider">
                         </div>
                         
                         <div class="form-group">
                             <label for="btn Agregar" class="text-white">Agregar</label>
-                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar" data-dismiss="modal"  onclick="agregarItem()"> Agregar</button>
+                            <button class="btn btn-primary form-control" id="Agregar" name="Agregar" data-dismiss="modal"  onclick="agregarImagenSlider()"> Agregar</button>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modalEditarImagenes">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Imagen Slider</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group" >
+                            <label for="nombreImageneditada">Nombre de la Imagen </label>
+                            <input type="text" class="form-control" name="nombreImageneditada" id="nombreImageneditada" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imagenSliderEditar">Imagen Slider</label>
+                            <input type="file" class="form-control" name="imagenSliderEditar" id="imagenSliderEditar">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary form-control" id="editarBtnSlider" name="editarBtnSlider"   data-dismiss="modal"> Editar</button>
                         </div>
                     </div>
                     <!-- Modal footer -->
@@ -150,25 +230,24 @@
         </div>
 
         <!--modal editar-->
-        <div class="modal" id="modalEditar">
+        <div class="modal" id="modalEditarEnlaces">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Editar Item</h4>
+                        <h4 class="modal-title">Editar Enlaces</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="nombreItemEditar">Nombre Item:</label>
-                            <input type="text" class="form-control" id="nombreItemEditar" name="nombreItemEditar">
+                            <label for="txt_facebook">Facebook:</label>
+                            <input type="text" class="form-control" id="txt_facebook" name="txt_facebook">
                         </div>
                         
                         <div class="form-group">
-                            <label for="iconoItemEditar">Icono</label>
-                            <input type="text" class="form-control" id="iconoItemEditar" name="iconoItemEditar">
-                            <strong>(Seleccionar el name de los iconos de la siguiente <a href="https://ionicons.com/" target="_blank"> pagina</a>)</strong>
+                            <label for="txt_youtube">youtube:</label>
+                            <input type="text" class="form-control" id="txt_youtube" name="txt_youtube">
                         </div>
                         
                         <div class="form-group">
@@ -183,21 +262,19 @@
             </div>
         </div>
             
-    
-    
-            
-            
+
+
+
+
+
         <script src="../conextion.js"></script>
         <script src="./recolectarDatos.js"></script>
         <script  src="./agregar.js"></script>
         <script src="./editar.js"></script>
         <script src="./eliminar.js"></script>
+
         <script src="../../utils/logout.js"></script>
         <script src="../../utils/status.js"></script>
-
-
-
-
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
