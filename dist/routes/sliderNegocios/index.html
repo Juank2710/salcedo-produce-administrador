@@ -42,9 +42,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
+                        
                         <button class="dropdown-item" id="logoutButton">Logout </button>
                     </div>
                 </li>
@@ -95,21 +93,21 @@
                             
                             <div class="row">
                                 <div class="col">
-                                    <label for="selectItems">Seleccione el item (Este se tomara en cuenta para agregar los negocios)</label>
+                                    <label for="selectItems">Seleccione el item (Este se tomara en cuenta para agregar )</label>
                                     <select class="form-control" id="selectItems" name="selectItems" onchange="activarCategoria()" > 
                                         <option value="">Seleccione</option>
                                     </select>
                                     <br>
                                 </div>
                                 <div class="col" id="contentCategoria" style="display: none;">
-                                    <label for="selectCategoria">Seleccione la Categoria (Este se tomara en cuenta para agregar los negocios)</label>
+                                    <label for="selectCategoria">Seleccione la Categoria (Este se tomara en cuenta para agregar )</label>
                                     <select class="form-control" id="selectCategoria" name="selectCategoria" onchange="activarListaNeg()" > 
                                         
                                     </select>
                                 </div>
 
                                 <div class="col" id="contentNegocio" style="display: none;">
-                                    <label for="selectNegocio">Seleccione El Negocio (Este se tomara en cuenta para agregar los negocios)</label>
+                                    <label for="selectNegocio">Seleccione El Negocio (Este se tomara en cuenta para agregar )</label>
                                     <select class="form-control" id="selectNegocio" name="selectNegocio" onchange="activarContent()" > 
                                         
                                     </select>
@@ -160,8 +158,9 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Agregar Imagen Slider</h4>
+                    <div class="modal-header ">
+                        <h4 class="modal-title ">Agregar Imagen Slider (520x255) px </h4>
+                        
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->

@@ -1,12 +1,11 @@
 firebase.initializeApp({
-  apiKey: "AIzaSyCwsFDdN2914nYD_9IiaEb35i_gGvTNa3U",
-  authDomain: "proyectoprueba-b1664.firebaseapp.com",
-  databaseURL: "https://proyectoprueba-b1664-default-rtdb.firebaseio.com",
-  projectId: "proyectoprueba-b1664",
-  storageBucket: "proyectoprueba-b1664.appspot.com",
-  messagingSenderId: "114176212234",
-  appId: "1:114176212234:web:f51d8049474581f13acef3",
-  measurementId: "G-5KZNZCMVRQ"
+  apiKey: "AIzaSyARlyRMZUG7xDbYIjxeP-uwxVhwDpCjMxA",
+    authDomain: "salcedo-produce.firebaseapp.com",
+    projectId: "salcedo-produce",
+    storageBucket: "salcedo-produce.appspot.com",
+    messagingSenderId: "62846201915",
+    appId: "1:62846201915:web:1362bfaf81882eb80b2c1e",
+    measurementId: "G-RYHFRD25W5"
 });
 
 var db = firebase.firestore();
